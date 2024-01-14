@@ -12,3 +12,7 @@ node 'slave1.puppet' {
 node 'slave2.puppet' {
   include 'apache'
 }
+
+node 'slave3.puppet' {
+  include 'apache'
+}
