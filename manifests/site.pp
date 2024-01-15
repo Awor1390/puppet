@@ -1,6 +1,6 @@
 node default{
-    file { 'file1':
-      path => '/root/README.md',
-      ensure => absent,
+    file { '/root/README.md':
+      ensure => file,
+      content => 'file',
     }
   }
