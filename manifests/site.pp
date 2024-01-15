@@ -1,18 +1,10 @@
-class { 'apache':
-  listen => ['80', '443'],
-  mpm    => 'event',
-  ssl    => true,
-  dir    => '/var/www',
+class { '::apache':
+  listen => ['80'],
+  mpm => 'event',
+  package => 'apache2',
 }
 
-node 'slave1.puppet' {
-  include 'apache'
-}
-
-node 'slave2.puppet' {
-  include 'apache'
-}
-
-node 'slave3.puppet' {
-  include 'apache'
+file { '/var/www/html/index.html':
+  ensure => file,
+  content => "Hello, World!\n",
 }
