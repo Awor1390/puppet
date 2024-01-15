@@ -1,0 +1,17 @@
+forge 'https://forgeapi.puppetlabs.com'
+
+class { ':: apache':
+  default_vhost => true,
+  manage_user   => false,
+  mpm            => 'event',
+}
+
+apache::vhost { 'example.com':
+  servername     => 'example.com',
+  docroot        => '/var/www/example.com/public',
+  port           => '80',
+  protocol       => 'HTTP/1.1',
+  setenvif       => {
+    'Access-Control-Allow-Origin' => '.*',
+  },
+}
