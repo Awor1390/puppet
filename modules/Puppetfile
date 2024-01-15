@@ -1,17 +1,4 @@
-forge 'https://forgeapi.puppetlabs.com'
-
-class { ':: apache':
-  default_vhost => true,
-  manage_user   => false,
-  mpm            => 'event',
-}
-
-apache::vhost { 'example.com':
-  servername     => 'example.com',
-  docroot        => '/var/www/example.com/public',
-  port           => '80',
-  protocol       => 'HTTP/1.1',
-  setenvif       => {
-    'Access-Control-Allow-Origin' => '.*',
-  },
-}
+mod 'puppetlabs-apache', '12.0.2'
+mod 'puppetlabs/apache', '5.4.0'
+mod 'puppetlabs/stdlib', '4.13.1'
+mod 'puppetlabs/concat',  '2.2.1'
