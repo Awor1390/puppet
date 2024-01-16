@@ -9,9 +9,9 @@ node 'slave1.puppet' {
     docroot => '/var/www/a.example.com',
   }
 
-  file { '/vagrant/files/index.html':
-    ensure => link,
-    target => '/var/www/a.example.com/index.html',
+  file { '/var/www/a.example.com/index.html':
+            ensure => present,
+            source => '/vagrant/files/index.html',
   }
 
 }
@@ -28,9 +28,9 @@ node 'slave2.puppet' {
     docroot => '/var/www/b.example.com',
   }
 
-  file { '/vagrant/files/index.php':
-    ensure => link,
-    target => '/var/www/b.example.com/index.php',
+  file { '/var/www/b.example.com/index.php':
+            ensure => present,
+            source => '/vagrant/files/index.php',
   }
 
 }
