@@ -4,7 +4,7 @@ node 'slave1.puppet' {
     default_vhost => false,
   }
 
-  apache::vhost { 'vhost.static.com':
+  apache::vhost { 'a.example.com':
     port    => 80,
     docroot => '/var/www/a.example.com',
   }
@@ -23,7 +23,7 @@ node 'slave2.puppet' {
     default_vhost => false,
   }
 
-  apache::vhost { 'vhost.dynamic.com':
+  apache::vhost { 'b.example.com':
     port    => 80,
     docroot => '/var/www/b.example.com',
   }
