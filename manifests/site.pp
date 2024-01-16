@@ -19,9 +19,11 @@ node 'slave1.puppet' {
     phpunit      => false,
   }
 
-  file { '/var/www/a.example.com/index.html':
-            ensure => present,
-            source => '/vagrant/index.html',
+  file { "/var/www/a.example.com/index.html":
+    mode => 644,
+    owner => root,
+    group => root,
+    source => "/vagrant/index.html"
   }
 
 }
@@ -37,7 +39,7 @@ node 'slave2.puppet' {
     port    => 80,
     docroot => '/var/www/b.example.com',
   }
-  
+
   class { '::php':
     ensure       => latest,
     manage_repos => true,
@@ -48,9 +50,12 @@ node 'slave2.puppet' {
     phpunit      => false,
   }
 
-  file { '/var/www/b.example.com/index.php':
-            ensure => present,
-            source => '/vagrant/index.php',
+
+  file { "/var/www/b.example.com/index.php":
+    mode => 644,
+    owner => root,
+    group => root,
+    source => "/vagrant/index.php"
   }
 
 }
