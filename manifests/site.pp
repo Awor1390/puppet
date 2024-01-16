@@ -11,7 +11,7 @@ node 'slave1.puppet' {
 
   file { '/var/www/a.example.com/index.html':
             ensure => present,
-            source => '/vagrant/files/index.html',
+            source => '/vagrant/index.html',
   }
 
 }
@@ -30,7 +30,7 @@ node 'slave2.puppet' {
 
   file { '/var/www/b.example.com/index.php':
             ensure => present,
-            source => '/vagrant/files/index.php',
+            source => '/vagrant/index.php',
   }
 
 }
