@@ -1,6 +1,8 @@
 node 'slave1.puppet' {
 
-  package { 'screen' : 
-    ensure => 'installed'
+    class { 'apache': }             # use apache module
+    apache::vhost { 'example.com':  # define vhost resource
+      port    => '80',
+      docroot => '/var/www/html'
   }
 }
