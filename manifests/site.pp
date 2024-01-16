@@ -1,4 +1,5 @@
 node 'slave1.puppet' {
+
   class { 'apache':
     listen => ['80', '443'],
     mpm    => 'prefork',
@@ -13,4 +14,5 @@ node 'slave1.puppet' {
     ensure => file,
     content => "Привет, мир!\n",
   }  
+  
 }
