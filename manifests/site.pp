@@ -10,7 +10,8 @@ node 'slave1.puppet' {
   }
 
   file { '/vagrant/files/index.html':
-    ensure => '/var/www/a.example.com/index.html',
+    ensure => link,
+    target => '/var/www/a.example.com/index.html',
   }
 
 }
@@ -28,7 +29,8 @@ node 'slave2.puppet' {
   }
 
   file { '/vagrant/files/index.php':
-    ensure => '/var/www/b.example.com/index.php',
+    ensure => link,
+    target => '/var/www/b.example.com/index.php',
   }
 
 }
