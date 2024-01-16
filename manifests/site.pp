@@ -1,6 +1,7 @@
 node 'slave1.puppet' {
 
-  include common
-  include apache
+  package { 'screen' : 
+    ensuure => 'installed'
+  }
   
 }
