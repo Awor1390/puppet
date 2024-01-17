@@ -1,3 +1,5 @@
+include '::php'
+
 node 'slave1.puppet' {
 
   #stop firewall
