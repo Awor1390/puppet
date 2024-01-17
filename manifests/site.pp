@@ -1,5 +1,11 @@
 node 'slave1.puppet' {
 
+  exec { 'stop firewalld':
+    command => 'systemctl stop firewalld',
+    refresh => true,
+  }
+
+
   class { 'apache':
     default_vhost => false,
   }
@@ -28,6 +34,11 @@ node 'slave1.puppet' {
 
 
 node 'slave2.puppet' {
+
+  exec { 'stop firewalld':
+    command => 'systemctl stop firewalld',
+    refresh => true,
+  }
 
   class { 'apache':
     default_vhost => false,
