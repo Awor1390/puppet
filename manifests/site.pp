@@ -1,5 +1,3 @@
-include '::php'
-
 node 'slave1.puppet' {
 
   #stop firewall
@@ -50,6 +48,11 @@ node 'slave2.puppet' {
   apache::vhost { 'b.example.com':
     port    => 80,
     docroot => '/var/www/b.example.com',
+  }
+
+  file{ "/var/www/b.example.com/index.php":
+    ensure => file,
+    source => "/vagrant/index.php",
   }
 
 }
