@@ -18,7 +18,7 @@ node 'slave1.puppet' {
   }
 
   #add stativ page as file
-  file { '/var/www/html/index.html':
+  file { '/var/www/a.example.com/index.html':
     ensure => file,
     source => '/vagrant/index.html',
   }  
