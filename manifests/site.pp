@@ -43,17 +43,10 @@ node 'slave2.puppet' {
     docroot => '/var/www/b.example.com',
   }
 
-  #add stativ page as file
-  file { '/var/www/html/index.html':
+  #add dynamic  page as file
+  file { '/var/www/b.example.com/index.php':
     ensure => file,
-    content => "<html>\n
-      <head>\n
-        <title>Static page</title>\n
-      </head>\n
-      <body>\n
-        <h1>Hello world</h1>\n
-      </body>\n
-    </html>\n",
-  }  
+    source => '/vagrant/index.php',
+  } 
 
 }
