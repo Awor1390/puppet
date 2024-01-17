@@ -25,11 +25,6 @@ node 'slave1.puppet' {
     phpunit      => false,
   }
 
-  file { '/var/www/html/index.html':
-    ensure => file,
-    content => "Привет, мир!\n",
-  }  
-
 }
 
 
@@ -57,11 +52,6 @@ node 'slave2.puppet' {
     composer     => true,
     pear         => true,
     phpunit      => false,
-  }
-
-  file { '/var/www/html/index.html':
-    ensure => file,
-    content => "Привет, мир!\n",
-  }  
+  } 
 
 }
