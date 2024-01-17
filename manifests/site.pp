@@ -39,24 +39,25 @@ node 'slave2.puppet' {
     refresh => true,
   }
 
+  #add php support
+  class { '::apache::mod':
+    'actions' => [
+      { 'name' => 'php', 'enable' => true },
+    ],
+  }
+
   #init apache
   class { 'apache':
     default_vhost => false,
   }
 
+  #start apache on port 80
   apache::vhost { 'b.example.com':
     port    => 80,
     docroot => '/var/www/b.example.com',
-  }
-
-  class { '::php':
-    ensure       => latest,
-    manage_repos => true,
-    fpm          => true,
-    dev          => true,
-    composer     => true,
-    pear         => true,
-    phpunit      => false,
+    mods_enabled => {
+      'php' => true,
+    },
   }
 
 }
