@@ -32,6 +32,8 @@ node 'slave2.puppet' {
   #   refresh => true,
   # }
 
+  class { '::php': }
+
   #init apache
   class { 'apache':
     default_vhost => false,
