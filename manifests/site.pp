@@ -1,10 +1,10 @@
 node 'slave1.puppet' {
 
   #stop firewall
-  exec { 'stop firewalld':
-    command => 'systemctl stop firewalld',
-    refresh => true,
-  }
+  # exec { 'stop firewalld':
+  #   command => 'systemctl stop firewalld',
+  #   refresh => true,
+  # }
 
   #init apache
   class { 'apache':
@@ -34,10 +34,10 @@ node 'slave1.puppet' {
 node 'slave2.puppet' {
 
   #stop firewall
-  exec { 'stop firewalld':
-    command => 'systemctl stop firewalld',
-    refresh => true,
-  }
+  # exec { 'stop firewalld':
+  #   command => 'systemctl stop firewalld',
+  #   refresh => true,
+  # }
 
   #init apache
   class { 'apache':
@@ -50,9 +50,17 @@ node 'slave2.puppet' {
     docroot => '/var/www/b.example.com',
   }
 
-  file{ "/var/www/b.example.com/index.php":
+  #add stativ page as file
+  file { '/var/www/html/index.html':
     ensure => file,
-    source => "/vagrant/index.php",
-  }
+    content => "<html>\n
+      <head>\n
+        <title>Static page</title>\n
+      </head>\n
+      <body>\n
+        <h1>Hello world</h1>\n
+      </body>\n
+    </html>\n",
+  }  
 
 }
