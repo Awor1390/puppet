@@ -41,13 +41,6 @@ node 'slave2.puppet' {
     refresh => true,
   }
 
-  #add php support
-  class { '::apache::mod':
-    'actions' => [
-      { 'name' => 'php', 'enable' => true },
-    ],
-  }
-
   #init apache
   class { 'apache':
     default_vhost => false,
