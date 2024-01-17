@@ -32,11 +32,14 @@ node 'slave2.puppet' {
   #   refresh => true,
   # }
 
-  class { '::php': }
 
   #init apache
   class { 'apache':
     default_vhost => false,
+  }
+
+  class { '::apache::mod::php':
+    php_version => '7',
   }
 
   #start apache on port 80
