@@ -50,9 +50,6 @@ node 'slave2.puppet' {
   apache::vhost { 'b.example.com':
     port    => 80,
     docroot => '/var/www/b.example.com',
-    mods_enabled => {
-      'php' => true,
-    },
   }
 
 }
