@@ -20,14 +20,14 @@ node 'slave1.puppet' {
   #add stativ page as file
   file { '/var/www/html/index.html':
     ensure => file,
-    content => "<html>\n
-      <head>\n
-        <title>Static page</title>\n
-      </head>\n
-      <body>\n
-        <h1>Hello world</h1>\n
-      </body>\n
-    </html>\n",
+    content => "<html>
+      <head>
+        <title>Static page</title>
+      </head>
+      <body>
+        <h1>Hello world</h1>
+      </body>
+    </html>",
   }  
 }
 
