@@ -19,13 +19,6 @@ node 'slave1.puppet' {
     phpunit      => false,
   }
 
-  file { "/var/www/a.example.com/index.html":
-    mode => 644,
-    owner => root,
-    group => root,
-    source => "/vagrant/index.html"
-  }
-
 }
 
 
@@ -48,14 +41,6 @@ node 'slave2.puppet' {
     composer     => true,
     pear         => true,
     phpunit      => false,
-  }
-
-
-  file { "/var/www/b.example.com/index.php":
-    mode => 644,
-    owner => root,
-    group => root,
-    source => "/vagrant/index.php"
   }
 
 }
