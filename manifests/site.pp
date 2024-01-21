@@ -1,9 +1,6 @@
 node 'master.puppet' {
     
-  class{"nginx":
-    manage_repo => true,
-    package_source => 'nginx-mainline'
-  }
+  class{'nginx': }
 
   nginx::resource::server { 'http://localhost':
     listen_port => 80,
