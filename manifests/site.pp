@@ -5,13 +5,25 @@ node 'master.puppet' {
     package_source => 'nginx-mainline'
   }
 
+  nginx::resource::upstream { 'upstream_app1':
+    members => [
+      '192.168.56.41:80',
+    ],
+  }
+
+  nginx::resource::upstream { 'upstream_app2':
+    members => [
+      '192.168.56.42:80',
+    ],
+  }
+
   nginx::resource::location{'/static':
-    proxy => 'http://192.168.56.41:80' ,
+    proxy => 'http://upstream_app1' ,
     server => 'www.myhost.com',
   }
 
   nginx::resource::location{'/dynamic':
-    proxy => 'http://192.168.56.42:80' ,
+    proxy => 'http://upstream_app2' ,
     server => 'www.myhost.com',
   }
 }
