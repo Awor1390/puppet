@@ -4,12 +4,12 @@ node 'master.puppet' {
 
   nginx::resource::location{'/dynamic':
     proxy => 'http://192.168.56.42/' ,
-    server => '192.168.56.40'
+    server => 'localhost'
   }
 
   nginx::resource::location{'/static':
     proxy => 'http://192.168.56.41/' ,
-    server => '192.168.56.40'
+    server => 'localhost'
   }
   
 }
