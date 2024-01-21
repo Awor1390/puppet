@@ -2,11 +2,15 @@ node 'master.puppet' {
     
   class{'nginx': }
 
-  #add conf file
-  file { '/etc/nginx/nginx.conf':
-    ensure => file,
-    source => '/nginx.conf',
-  } 
+  nginx::resource::location{'/dynamic':
+    proxy => 'http://192.168.56.42/' ,
+    server => '192.168.56.40'
+  }
+
+  nginx::resource::location{'/static':
+    proxy => 'http://192.168.56.41/' ,
+    server => '192.168.56.40'
+  }
   
 }
 
