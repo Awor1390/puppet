@@ -1,7 +1,11 @@
 node 'master.puppet' {
     
   class{'nginx': }
-  
+
+  file { '/etc/nginx/nginx.conf':
+    ensure => file,
+    source => '/vagrant/nginx.conf',
+  }   
 }
 
 
