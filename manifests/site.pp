@@ -5,12 +5,12 @@ node 'master.puppet' {
     package_source => 'nginx-mainline'
   }
 
-  nginx::resource::server { 'www.myhost.com/static':
+  nginx::resource::server { 'http://localhost/static':
     listen_port => 80,
     proxy       => '192.168.56.41:80',
   }
 
-  nginx::resource::server { 'www.myhost.com/dynamic':
+  nginx::resource::server { 'http://localhost/dynamic':
     listen_port => 80,
     proxy       => '192.168.56.42:80',
   }
