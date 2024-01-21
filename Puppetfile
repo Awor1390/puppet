@@ -6,4 +6,4 @@ mod 'puppetlabs-inifile', '6.1.0'
 mod 'puppet-zypprepo', '5.0.0'
 mod 'puppet-archive', '7.1.0'
 mod 'puppet-php', '10.1.0'
-
+mod 'puppet-nginx', '5.0.0'

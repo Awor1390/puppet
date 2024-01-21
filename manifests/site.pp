@@ -1,3 +1,22 @@
+node 'master.puppet' {
+    
+  class{"nginx":
+    manage_repo => true,
+    package_source => 'nginx-mainline'
+  }
+
+  nginx::resource::location{'/static':
+    proxy => 'http://192.168.56.41:80' ,
+    server => 'www.myhost.com',
+  }
+
+  nginx::resource::location{'/dynamic':
+    proxy => 'http://192.168.56.42:80' ,
+    server => 'www.myhost.com',
+  }
+}
+
+
 node 'slave1.puppet' {
 
   #stop firewall
