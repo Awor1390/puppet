@@ -5,7 +5,7 @@ class nginx_example {
     -> file { '/etc/nginx':
         ensure => directory,
         source => 'puppet:///modules/example/nginx-conf',
-        recure => true,
+        requre => true,
         purge  => true,
         force  => true,
     }
