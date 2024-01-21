@@ -1,11 +1,23 @@
-node 'master.puppet' {
-    
-  class{'nginx': }
+class nginx_example {
+    package { 'nginx':
+        ensure => installed,
+    }
+    -> file { '/etc/nginx':
+        ensure => directory,
+        source => 'puppet:///modules/example/nginx-conf',
+        recure => true,
+        purge  => true,
+        force  => true,
+    }
+    ~> service { 'nginx':
+        ensure => running,
+        enable => true,
+    }
+}
 
-  file { '/etc/nginx/nginx.conf':
-    ensure => file,
-    source => '/vagrant/nginx.conf',
-  }   
+
+node 'master.puppet' {
+  include nginx_example
 }
 
 
