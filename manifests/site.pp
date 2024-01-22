@@ -1,7 +1,7 @@
 node 'master.puppet' {
   exec { 'disable se-linux':
       user   => 'root',
-      path      => '/usr/sbin:/usr/local/bin',
+      path      => '/bin:/sbin:/usr/sbin:/usr/local/bin',
       command => 'sudo setsebool -P httpd_can_network_connect 1',
 
   }
