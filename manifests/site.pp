@@ -1,10 +1,5 @@
 node 'master.puppet' {
-  include nginx
-  
-  nginx::resource::server { 'localhost/static':
-    listen_port => 80,
-  proxy       => 'http://192.168.56.41:80',
-}
+
 }
 
 
