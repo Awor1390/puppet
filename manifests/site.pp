@@ -1,22 +1,10 @@
-class nginx_example {
-    package { 'nginx':
-        ensure => installed,
-    }
-    -> file { '/etc/nginx':
-        ensure => directory,
-        source => 'puppet:///modules/example/nginx-conf',
-        purge  => true,
-        force  => true,
-    }
-    ~> service { 'nginx':
-        ensure => running,
-        enable => true,
-    }
-}
-
-
 node 'master.puppet' {
-  include nginx_example
+  include nginx
+  
+  nginx::resource::server { 'localhost/static':
+    listen_port => 80,
+  proxy       => 'http://192.168.56.41:80',
+}
 }
 
 
